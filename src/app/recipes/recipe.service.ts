@@ -9,20 +9,26 @@ import { Subject } from 'rxjs';
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-    private recipes: Recipe[] = [
-        new Recipe(
-          'A Test',
-          'This is A Test',
-          'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/spaghetti-puttanesca_1.jpg',
-          [
-            new Ingredient("Onion", 1),
-            new Ingredient("Garlic", 1),
-            new Ingredient("Tomatoes", 4)
-        ]
-        ),
-      ];
+    // private recipes: Recipe[] = [
+    //     new Recipe(
+    //       'A Test',
+    //       'This is A Test',
+    //       'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/spaghetti-puttanesca_1.jpg',
+    //       [
+    //         new Ingredient("Onion", 1),
+    //         new Ingredient("Garlic", 1),
+    //         new Ingredient("Tomatoes", 4)
+    //     ]
+    //     ),
+    //   ];
+    private recipes: Recipe[] = [];
 
       constructor(private slService: ShoppingListService) {};
+
+      setRecipes(recipes: Recipe[]){
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+      }
 
       getRecipes(){
           return this.recipes.slice();
