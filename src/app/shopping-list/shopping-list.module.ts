@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -13,10 +12,9 @@ import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
         ShoppingEditComponent,
     ],
     imports: [
-        AppRoutingModule,
         SharedModule,
         FormsModule,
-        RouterModule.forChild([{ path: 'shopping-list', component: ShoppingListComponent }])
+        RouterModule.forChild([{ path: '', component: ShoppingListComponent }])
     ],
     exports:[
         ShoppingListComponent,
