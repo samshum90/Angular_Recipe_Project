@@ -23,18 +23,19 @@ export class DataStorageService {
 
         return this.http
             .get<Recipe[]>('https://angularrecipe-5668c.firebaseio.com/recipes.json',
-        ).pipe(
-            map(recipes => {
-                return recipes.map(recipe => {
-                    return {
-                        ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []
-                    };
-                });
-            }),
-            tap(recipes => {
-                // this.recipeService.setRecipes(recipes);
-                this.store.dispatch(new RecipesAction.SetRecipes(recipes))
-            })
-        );
+        )
+            .pipe(
+                map(recipes => {
+                    return recipes.map(recipe => {
+                        return {
+                            ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []
+                        };
+                    });
+                }),
+                tap(recipes => {
+                    // this.recipeService.setRecipes(recipes);
+                    this.store.dispatch(new RecipesAction.SetRecipes(recipes))
+                })
+            );
     }
 }
