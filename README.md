@@ -4,6 +4,9 @@
 
 This is my Full stack app built following Maximilian Schwarzmüller's [Angular - The Complete Guide](https://www.udemy.com/course/the-complete-guide-to-angular-2/)
 
+
+![alt text](https://github.com/samshum90/Angular_Recipe_Project/raw/master/src/assets/recipeBook.gif "Gif of the Recipe Book app in use")
+
 ### Features:
 * Firebase Realtime Database used as a backend
 * Features Firebase authentication
